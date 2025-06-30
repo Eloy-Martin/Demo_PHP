@@ -3,11 +3,11 @@
 $host   = '127.0.0.1';
 $puerto = '3306';
 $name_db = 'my_database';
-$usuario   = 'root';
-$passwd    = '';
+$usuario   = 'Eloy';
+$passwd    = '1234';
 
 //Data Source Name (DSN) para la conexión a la base de datos
-$dsn = "mysql:host=$host;port=$puerto;dbname=$nombre_db;charset=utf8";
+$dsn = "mysql:host=$host;port=$puerto;dbname=$name_db";
 
 try {
     // 1. Definimos unas “opciones” para PDO
@@ -21,7 +21,7 @@ try {
 
 } catch (PDOException $e) {
     // 3. Si hay cualquier error (credenciales mal, servidor caído, etc.), caemos aquí
-    die("¡Error de conexión!: " . $e->getMessage());
+    echo "¡Error de conexión!: " . $e->getMessage() . "\n";
 }
 
 ?>
