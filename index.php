@@ -41,9 +41,24 @@
         }
     ?>
     <!-- Update-->
+    <?php
+        require_once 'CRUD/db.php';
+        $stmt  = $pdo->query('SELECT id, name FROM people ORDER BY name');
+        $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
     <form method="post" action="CRUD/update.php">
-        <input type="text" name="input1" placeholder="Enter something" />
-        <button type="submit" name="button1">Submit</button>
+        <label for="person_update">Select a name to update name and age</label>
+        <select id="person_update" name="choose_person_update">
+            <?php foreach ($persons as $p): ?>
+                <option value="<?= $p['id'] ?>">
+                    <?= htmlspecialchars($p['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <br/>
+        <input type="text" name="update_name" placeholder="Update name" />
+        <input type="text" name="update_age" placeholder="Update age" />
+        <button type="submit" name="update">Update</button>
 
         <br/>
     </form>
