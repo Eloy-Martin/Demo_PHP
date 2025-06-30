@@ -12,8 +12,9 @@
         <input type="text" name="enter_name" placeholder="Enter name" />
         <input type="text" name="enter_age" placeholder="Enter age" />
         <button type="submit" name="create">Create</button>
-        <br/>
+    </form>
 
+    <form method="post" action="CRUD/read.php">
         <!-- Read-->
         <label>Select a name to consult age</label>
         <select name="name">
@@ -21,19 +22,20 @@
             <option value="name2">Name 2</option>
             <option value="name3">Name 3</option>
         </select>
-        <br/>
+    </form>
 
+    <form method="post" action="CRUD/update.php">
         <!-- Update-->
         <input type="text" name="input1" placeholder="Enter something" />
         <button type="submit" name="button1">Submit</button>
 
         <br/>
+    </form>
 
+    <form method="post" action="CRUD/delete.php">
         <!-- Delete-->
         <input type="text" name="input1" placeholder="Enter something" />
         <button type="submit" name="button1">Submit</button>
-
-
     </form>
 
 </body>
