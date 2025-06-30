@@ -42,13 +42,12 @@
     ?>
     <!-- Update-->
     <?php
-        session_start();
         require_once 'CRUD/db.php';
         $stmt  = $pdo->query('SELECT id, name FROM people ORDER BY name');
         $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
     ?>
     <form method="post" action="CRUD/update.php">
-        <label for="person">Select a name to update name and age</label>
+        <label for="person_update">Select a name to update name and age</label>
         <select id="person_update" name="choose_person_update">
             <?php foreach ($persons as $p): ?>
                 <option value="<?= $p['id'] ?>">
