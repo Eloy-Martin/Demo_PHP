@@ -14,7 +14,7 @@
         <input type="text" name="enter_age" placeholder="Enter age" />
         <button type="submit" name="create">Create</button>
     </form>
-
+<hr/>
     <!-- Read-->
     <?php
         session_start();
@@ -40,6 +40,7 @@
             unset($_SESSION['consult_msg']);
         }
     ?>
+<hr/>
     <!-- Update-->
     <?php
         require_once 'CRUD/db.php';
@@ -59,14 +60,25 @@
         <input type="text" name="update_name" placeholder="Update name" />
         <input type="text" name="update_age" placeholder="Update age" />
         <button type="submit" name="update">Update</button>
-
-        <br/>
     </form>
+<hr/>
 
     <!-- Delete-->
+    <?php
+        require_once 'CRUD/db.php';
+        $stmt  = $pdo->query('SELECT id, name FROM people ORDER BY name');
+        $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    ?>
     <form method="post" action="CRUD/delete.php">
-        <input type="text" name="input1" placeholder="Enter something" />
-        <button type="submit" name="button1">Submit</button>
+        <label for="person_delete">Select a name to delete it</label>
+        <select id="person_delete" name="choose_person_delete">
+            <?php foreach ($persons as $p): ?>
+                <option value="<?= $p['id'] ?>">
+                    <?= htmlspecialchars($p['name']) ?>
+                </option>
+            <?php endforeach; ?>
+        </select>
+        <button type="submit" name="delete">Delete</button>
     </form>
 
 </body>
