@@ -20,4 +20,9 @@
 
     // 3. Ejecutar la consulta
     $stmt->execute($data);
+
+
+    // 4. Redirigir a index.php
+    header("Location: ../index.php");
+    exit();
 ?>
