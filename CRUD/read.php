@@ -6,7 +6,7 @@ include_once 'db.php';
 
     $id_person = filter_input(INPUT_POST, 'choose_person', FILTER_VALIDATE_INT);
     
-    if ($personId === false) {
+    if ($id_person === false) {
         exit('Selección inválida');
     }
 
