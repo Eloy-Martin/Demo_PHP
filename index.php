@@ -17,6 +17,7 @@
 
     <!-- Read-->
     <?php
+        session_start();
         require_once 'CRUD/db.php';
         $stmt  = $pdo->query('SELECT id, name FROM people ORDER BY name');
         $persons = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -31,12 +32,14 @@
             <?php endforeach; ?>
         </select>
         <button type="submit" name="consult">Consult</button>
-        </form>
-
-        <p>Here the result of your query:</p>
-        <p name="message">
-        <p>
-
+        </form>        
+    <p>Here the result of your query:</p>
+    <?php
+        if (isset($_SESSION['consult_msg'])) {
+            echo '<p>' . htmlspecialchars($_SESSION['consult_msg']) . '</p>';
+            unset($_SESSION['consult_msg']);
+        }
+    ?>
     <!-- Update-->
     <form method="post" action="CRUD/update.php">
         <input type="text" name="input1" placeholder="Enter something" />
