@@ -5,26 +5,42 @@
     <title>MAIN VIEW</title>
 </head>
 <body>
+    <?php
+    include 'CRUD/db.php';
+    include 'CRUD/create.php';
+    include 'CRUD/read.php';
+    include 'CRUD/update.php';
+    include 'CRUD/delete.php';
+    ?>
     <h1>Hello World</h1>
-    <form  method="post" action="script.php">
-        <div>
-            <button id="button1">This is an Alert</button>
-        </div>
-        <div>
-            <button id="button2">This is a PHP Script</button>
-        </div>
-        <div>
-            <button id="button3">This is a Get API call</button> <button id = "button3reset">Reset</button>
-            <p id="response">Hello...</p>
-        </div>
-        <div>
-            <button id="button4">This is a Post API call (+1)</button>
-            <counter id="counter">0</counter>
-        </div>
-        <div>
-            <input id="input1">What is your name?</input><button id="submit1">Submit</button>
-            <p id="personalGreeting"></p>
-        </div>
+    <form  method="post" action="CRUD/create.php">
+    <!-- example of CRUD-->
+    <!-- Create-->
+    <input type="text" name="name" placeholder="Enter name" />
+    <input type="text" name="age" placeholder="Enter age" />
+    <button type="submit" name="create">Create</button>
+    <br/>
+
+    <!-- Read-->
+    <label>Select a name to consult age</label>
+    <select name="name">
+        <option value="name1">Name 1</option>
+        <option value="name2">Name 2</option>
+        <option value="name3">Name 3</option>
+    </select>
+    <br/>
+
+    <!-- Update-->
+    <input type="text" name="input1" placeholder="Enter something" />
+    <button type="submit" name="button1">Submit</button>
+
+    <br/>
+
+    <!-- Delete-->
+    <input type="text" name="input1" placeholder="Enter something" />
+    <button type="submit" name="button1">Submit</button>
+
+
     </form>
 
 </body>
